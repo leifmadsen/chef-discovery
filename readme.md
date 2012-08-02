@@ -16,6 +16,13 @@ host = Discovery.search("any_role",
                         :environment_aware => false)
 ```
 
+Available options include:
+
+* environment_aware (true or false). Default is false.
+* empty_ok (true or false). Default is false.
+* remove_self (true or false). Default is true.
+* minimum_response_time (true or false). Default is false.
+
 All
 ---
 
@@ -45,6 +52,16 @@ ipv4 will be returned.
 
 You can optionally supply a type argument specifying which ipaddress
 you would like.
+
+The value of 'host' is returned via the search method.
+
+The :remote_node attribute should contain the node object of the remote node
+(search response). The :node attribute should contain the local node object
+which is used to compare the remote node to the local node in order to test
+if they are in the same cloud, zone, etc.
+
+If you use Discovery.search or all to pass the remote_node, you can omit the
+:node attribute as it will already be injected into the DSL.
 
 ``` ruby
 ipaddress = Discovery.ipaddress(:remote_node => host,
