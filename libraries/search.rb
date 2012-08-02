@@ -20,7 +20,7 @@ module Discovery
       options[:remove_self] = true unless options.key? :remove_self
       options[:minimum_response_time] = false unless options.key? :minimum_response_time
 
-      Chef::Log.debug "discovery: doing enviornment aware search" if options[:environment_aware]
+      Chef::Log.debug "discovery: doing environment aware search" if options[:environment_aware]
 
       results = []
 
